@@ -1890,8 +1890,8 @@ function () {
   User.prototype.save = function () {
     var id = this.get("id");
 
-    if (this.get("id")) {
-      axios_1.default.put("http://localhost:3000/users/" + id + "}", this.data);
+    if (id) {
+      axios_1.default.put("http://localhost:3000/users/" + id, this.data);
     } else {
       axios_1.default.post("http://localhost:3000/users/", this.data);
     }
@@ -1911,11 +1911,8 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./models/User");
 
 var user = new User_1.User({
-  id: 1
-});
-user.set({
-  name: "NEW NAME",
-  age: 999
+  name: "new record",
+  age: 0
 });
 user.save();
 },{"./models/User":"src/models/User.ts"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -1946,7 +1943,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1652" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "8717" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
