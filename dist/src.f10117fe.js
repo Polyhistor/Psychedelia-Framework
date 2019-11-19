@@ -1887,6 +1887,16 @@ function () {
     });
   };
 
+  User.prototype.save = function () {
+    var id = this.get("id");
+
+    if (this.get("id")) {
+      axios_1.default.put("http://localhost:3000/users/" + id + "}", this.data);
+    } else {
+      axios_1.default.post("http://localhost:3000/users/", this.data);
+    }
+  };
+
   return User;
 }();
 
@@ -1903,10 +1913,11 @@ var User_1 = require("./models/User");
 var user = new User_1.User({
   id: 1
 });
-user.fetch();
-setTimeout(function () {
-  console.log(user);
-}, 4000);
+user.set({
+  name: "NEW NAME",
+  age: 999
+});
+user.save();
 },{"./models/User":"src/models/User.ts"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
