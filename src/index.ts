@@ -1,9 +1,5 @@
-import { User } from "./models/User";
+import { UserForm } from "./views/UserForm";
 
-const user = new User({ id: 1, name: "newer name", age: 0 });
+const userForm = new UserForm(document.getElementById("root"));
 
-user.on("save", () => {
-  console.log(user);
-});
-
-user.save();
+userForm.render();
