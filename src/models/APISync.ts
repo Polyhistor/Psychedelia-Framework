@@ -12,7 +12,6 @@ export class APISync<T extends HasId> {
   }
 
   save(data: T): AxiosPromise {
-    // const id = data.id;
     const { id } = data;
 
     if (id) {
