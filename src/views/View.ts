@@ -39,9 +39,15 @@ export abstract class View<T extends Model<K>, K> {
 
     for (let key in regionsMap) {
       const selector = regionsMap[key];
-      this.regions[key] = fragment.querySelector(selector);
+      const element = fragment.querySelector(selector);
+
+      if (element) {
+        this.regions[key] = element;
+      }
     }
   }
+
+  onRender(): void {}
 
   render(): void {
     this.parent.innerHTML = "";
@@ -51,6 +57,8 @@ export abstract class View<T extends Model<K>, K> {
 
     this.bindEvents(templateElement.content);
     this.mapRegions(templateElement.content);
+
+    this.onRender();
 
     this.parent.append(templateElement.content);
   }
